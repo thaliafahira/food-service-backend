@@ -6,6 +6,14 @@ const authRoutes = require('./routes/auth');
 const foodRoutes = require('./routes/food');
 
 const app = express();
+
+// Log environment variables (remove in production)
+console.log('Environment check:', {
+  mongoDBUri: process.env.MONGODB_URI ? 'defined' : 'undefined',
+  nodeEnv: process.env.NODE_ENV
+});
+
+// Connect to MongoDB
 connectDB();
 
 app.use(cors());
