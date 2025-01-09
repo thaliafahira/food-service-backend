@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/foodservice');
+    const uri = process.env.MONGODB_URI;
+    await mongoose.connect(uri);
     console.log('MongoDB connected');
   } catch (err) {
     console.error('MongoDB connection error:', err);
